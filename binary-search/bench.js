@@ -8,11 +8,11 @@ tests.forEach((test) => {
   // add tests
   suite.add(`binarySearch#${test.name}#iterative`, function() {
     const index = binarySearch.search(test.array, test.value);
-    // if (index !== test.index) throw new Error('incorrect value found');
+    if (index !== test.index) throw new Error('incorrect value found');
   })
   .add(`binarySearch#${test.name}#recursive`, function() {
-    const index = binarySearch.searchRecursive(test.array, test.value);
-    // if (index !== test.index) throw new Error('incorrect value found');
+    const index = binarySearch.searchRecursive(test.array, 0, test.array.length, test.value);
+    if (index !== test.index) throw new Error('incorrect value found');
   })
   // add listeners
   .on('cycle', function(event) {
